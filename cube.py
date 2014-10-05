@@ -106,6 +106,10 @@ def run_pattern(cube, pattern):
                 sec_tick += 1.0
                 frames = 0
     except StopIteration:
+        try:
+            pattern.teardown()
+        except:
+            pass
         return
 
 def sigterm_handler(_signo, _stack_frame):
